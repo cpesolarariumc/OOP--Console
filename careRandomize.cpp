@@ -5,6 +5,10 @@
 #include <thread>
 #include <chrono>
 #include "incremention.cpp"
+#include "main.cpp"
+#include "game.cpp"
+
+
 using namespace std;
 
 void careRandomize() {
@@ -13,6 +17,7 @@ void careRandomize() {
     cout << "1. Fertilize the plant" << endl;
     cout << "2. Prune the plant" << endl;
     cout << "3. Give the plant some sunlight" << endl;
+    cout << "4. Do nothing" << endl;
     int care;
     cout << "Enter your choice: ";
     cin >> care;
@@ -31,9 +36,9 @@ void careRandomize() {
                 outline();
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-                 break;
+                break;
             }
-            break;
+            
         case 1:
             cout << "You fertilized the plant!" << endl;
             if (rand() % 2 == 0) {
@@ -48,6 +53,7 @@ void careRandomize() {
                 outline();
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            
                 break;
             }
         case 2:
@@ -64,7 +70,7 @@ void careRandomize() {
                 outline();
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-                break;
+             break;
             }
         case 3:
             cout << "You gave the plant some sunlight!" << endl;
@@ -82,9 +88,22 @@ void careRandomize() {
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
                 break;
             }
+            case 4:
+            cout << "You did nothing to the plant!" << endl;
+            if (rand() % 2 == 0) {
+                outline();
+                cout << "The plant is doing fine without any care!" << endl;
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            } else {
+                cout << "The plant is neglected and dies." << endl;
+                outline();
+                cout << "Game Over!" << endl;
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+             break;
+            }
         default:
             cout << "Invalid choice. Please try again." << endl;
-            break;
+         break;
     }
 }
 

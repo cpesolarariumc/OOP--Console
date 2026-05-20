@@ -1,3 +1,5 @@
+#ifndef MAIN_CPP
+#define MAIN_CPP
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -83,7 +85,6 @@ int main() {
 
         while (login(username, password)) 
         {
-            string username, password;
             outline();
             cout << "Login successful! Welcome, " << username << "!" << endl;
             outline();
@@ -97,8 +98,12 @@ int main() {
             outline();
             cout << "Enter your choice: ";
             cin >> choice;
-            if (choice == 1) {}
-    
+            if (choice == 1) {
+                Start();
+            }else{
+                cout << "Logging out.."<<endl;
+                main();
+            };
         }
     }
     else {
@@ -108,3 +113,4 @@ int main() {
         main();
     }
 }
+#endif//MAIN_CPP
