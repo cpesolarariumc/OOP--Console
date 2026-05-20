@@ -9,5 +9,6 @@ void outline() {
     for (int i = 0; i < 100; i++) {
         cout << "=";
     }
+    cout << endl;
 }
 #endif

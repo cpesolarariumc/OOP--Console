@@ -9,8 +9,12 @@
 #include <chrono>
 #include "data.h"
 #include "incremention.cpp"
-
-
+#include "rose.cpp"
+#include "Daisy.cpp"   
+#include "sunflower.cpp"
+#include "weather.cpp"
+#include "game.cpp"
+#include "careRandomize.cpp"
 using namespace std;
 
 bool login(const string& username, const string& password) {
@@ -24,13 +28,8 @@ bool login(const string& username, const string& password) {
     }
     return false;
 }
-void clearScreen() {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-}  
+
+
 void registerUser(PlayerData& player) {
     int id = rand() % 100000; 
     player.generateIdentifierNumber(id);
@@ -41,10 +40,11 @@ int main() {
 
     string username, password;
     int choice;
-
+    outline();
     cout << "Welcome to the Flower Game!" << endl;
     cout << "1. Register" << endl;
     cout << "2. Login" << endl;
+    outline();
     cout << "Enter your choice: ";
     cin >> choice;
 
@@ -66,21 +66,14 @@ int main() {
         if (userExists) {
             cout << "Username already exists. Please choose a different username." << endl;
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
-            system("cls");
+            
         } else {
             int id = rand() % 100000;
             ofstream outfile("userdata.txt", ios::app);
             outfile << newUsername << " " << newPassword << " " << id << " " << endl;
-            for (int i = 0; i < 20 ; ++i) {
-                cout << "Registering";
-                std::this_thread::sleep_for(std::chrono::milliseconds(300));
-                system("cls");
-            }
-
             cout << "Registration successful!" << endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));
         }
-        system("cls");
+        
     
     } else if (choice == 2) {
         cout << "Enter username: ";
@@ -88,22 +81,30 @@ int main() {
         cout << "Enter password: ";
         cin >> password;
 
-        if (login(username, password)) {
+        while (login(username, password)) 
+        {
+            string username, password;
+            outline();
             cout << "Login successful! Welcome, " << username << "!" << endl;
+            outline();
+            std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+            cout << "Welcome to the Flower Game!" << endl;  
+            
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
-            system("cls");
-        } else {
-            cout << "Invalid username or password." << endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));
-            system("cls");
-        }
-    } else {
-        cout << "Invalid choice." << endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-        system("cls");
-    }
+            outline();
+            cout << "1. Start Game" << endl;   
+            cout << "2. Logout" << endl;
+            outline();
+            cout << "Enter your choice: ";
+            cin >> choice;
+            if (choice == 1) {}
     
-
-
-    return 0;
+        }
+    }
+    else {
+        outline();
+        cout << "Invalid choice. Please try again." << endl;
+        outline();
+        main();
+    }
 }
