@@ -11,4 +11,8 @@ void outline() {
     }
     cout << endl;
 }
+
+void Attempt(){
+    
+}
 #endif

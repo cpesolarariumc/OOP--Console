@@ -1,12 +1,8 @@
 #ifndef DAISY_H
 #define DAISY_H
-
 #include <iostream>
-
 #include <string>
-
 using namespace std;
-
 void daisy_stage1() {
     cout<<"     / " << endl;
     cout<<"   _/__ " << endl;

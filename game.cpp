@@ -24,7 +24,7 @@ using namespace std;
 void Start (){
     int choice; 
     cout << "Starting game..." << endl;
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
     outline();
      cout << "choose your flower" << endl;
     cout << "1. Rose" << endl;
@@ -139,7 +139,7 @@ void Start (){
         Start();
         break;
     }
-
+ 
 }
 
 #endif 
