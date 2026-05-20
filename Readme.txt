@@ -12,4 +12,4 @@ void Start();                  <-- eto ang flow after login ( careful dahil may 
 void random_weather();          pwede i edit if may gusto i improve (possible affected din ang ibang function)
 
 
-bool login;           // dont touch this functions like this plss?
+bool login;           // Kantot pag pinakelman
