@@ -8,7 +8,7 @@
 using namespace std;
 
 void random_weather() {
-    int weather = rand() % 4; // Randomly select a weather condition
+    int weather = rand() % 4; 
     switch (weather) {
         case 0:
             cout << "The weather is sunny." << endl;
