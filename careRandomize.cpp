@@ -35,10 +35,8 @@ void careRandomize() {
                 cout << "The plant is underwatered and dies." << endl;
                 outline();
                 cout << "Game Over!" << endl;
-                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
                 break;
             }
-            
         case 1:
             cout << "You fertilized the plant!" << endl;
             if (rand() % 2 == 0) {
@@ -52,8 +50,6 @@ void careRandomize() {
                 cout << "The plant is under-fertilized and dies." << endl;
                 outline();
                 cout << "Game Over!" << endl;
-                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-            
                 break;
             }
         case 2:
@@ -72,6 +68,7 @@ void careRandomize() {
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
              break;
             }
+
         case 3:
             cout << "You gave the plant some sunlight!" << endl;
             if (rand() % 2 == 0) {
@@ -87,6 +84,7 @@ void careRandomize() {
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
                 break;
+
             }
             case 4:
             cout << "You did nothing to the plant!" << endl;
@@ -100,11 +98,12 @@ void careRandomize() {
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
              break;
+
             }
         default:
             cout << "Invalid choice. Please try again." << endl;
          break;
     }
-}
 
+}
 #endif

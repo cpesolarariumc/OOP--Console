@@ -10,6 +10,7 @@
 #include <thread>
 #include <chrono>
 #include "data.h"
+#include "usercredentials.txt"
 #include "incremention.cpp"
 #include "rose.cpp"
 #include "Daisy.cpp"   
@@ -20,7 +21,7 @@
 using namespace std;
 
 bool login(const string& username, const string& password) {
-    ifstream infile("userdata.txt");
+    ifstream infile("usercredentials.txt");
     string fileusername, filepassword, fileId;
     while (infile >> fileusername >> filepassword >> fileId) {
         if (fileusername == username && filepassword == password) {
@@ -55,7 +56,7 @@ int main() {
             cin >> newUsername;
             cout << "Enter password: ";
             cin >> newPassword;
-            ifstream infile("userdata.txt");
+            ifstream infile("usercredentials.txt");
             string fileusername, filepassword;
             bool userExists = false;
             while (infile >> fileusername >> filepassword) {
@@ -70,7 +71,7 @@ int main() {
                 
             } else {
                 int id = rand() % 100000;
-                ofstream outfile("userdata.txt", ios::app);
+                ofstream outfile("usercredentials.txt", ios::app);
                 outfile << newUsername << " " << newPassword << " " << id << " " << endl;
                 cout << "Registration successful!" << endl;
             }
@@ -90,7 +91,6 @@ int main() {
                 std::this_thread::sleep_for(std::chrono::milliseconds(3000));
                 cout << "Welcome to the Flower Game!" << endl;  
                 
-                std::this_thread::sleep_for(std::chrono::milliseconds(300));
                 outline();
                 cout << "1. Start Game" << endl;   
                 cout << "2. Logout" << endl;
@@ -98,7 +98,7 @@ int main() {
                 cout << "Enter your choice: ";
                 cin >> choice;
                 if (choice == 1) {
-                    Start();
+                    Start ();
                 }else{
                     cout << "Logging out.."<<endl;
                     main();

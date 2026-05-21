@@ -1,10 +1,6 @@
 #ifndef weather_H
 #define weather_H
-
 #include <iostream>
-#include <string>
-#include <thread>
-#include <chrono>
 using namespace std;
 
 void random_weather() {
