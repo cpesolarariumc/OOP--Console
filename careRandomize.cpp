@@ -7,10 +7,16 @@
 #include "incremention.cpp"
 #include "main.cpp"
 #include "game.cpp"
-
-
+#include "close.cpp"
 using namespace std;
 
+void clear_screen() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
 void careRandomize() {
    cout << "How would you like to care for your plant?" << endl;
     cout << "0. Water the plant" << endl;
@@ -35,6 +41,7 @@ void careRandomize() {
                 cout << "The plant is underwatered and dies." << endl;
                 outline();
                 cout << "Game Over!" << endl;
+                Close();
                 break;
             }
         case 1:
@@ -50,6 +57,7 @@ void careRandomize() {
                 cout << "The plant is under-fertilized and dies." << endl;
                 outline();
                 cout << "Game Over!" << endl;
+                Close();
                 break;
             }
         case 2:
@@ -66,7 +74,8 @@ void careRandomize() {
                 outline();
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-             break;
+                Close();
+                break;
             }
 
         case 3:
@@ -83,6 +92,7 @@ void careRandomize() {
                 outline();
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                Close();
                 break;
 
             }
@@ -97,8 +107,8 @@ void careRandomize() {
                 outline();
                 cout << "Game Over!" << endl;
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-             break;
-
+                Close();
+                break;
             }
         default:
             cout << "Invalid choice. Please try again." << endl;

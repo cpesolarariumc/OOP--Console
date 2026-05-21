@@ -37,7 +37,6 @@ void registerUser(PlayerData& player) {
     cout << "Registration successful! Your identifier number is: " << player.getIdentifiedNumber() << endl;
 }
 int main() {
-    srand(static_cast<unsigned int>(time(0)));
     bool running=true;
     while (running){
         string username, password;
