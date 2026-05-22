@@ -22,7 +22,7 @@
 using namespace std;
 
 void Close(){
- cout <<"Closing..." << endl;
+ cout <<"                                Closing..." << endl;
  std::exit(EXIT_FAILURE);
 }
 #endif 

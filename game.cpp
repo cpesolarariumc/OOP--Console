@@ -21,27 +21,31 @@
 using namespace std;
 
 
-void Start (){
+void Start (PlayerData& player){
     int choice; 
-    cout << "Starting game..." << endl;
+    outline();
+    cout << "                                          Starting game..." << endl;
     std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-    outline();
-    cout << "choose your flower" << endl;
-    cout << "1. Rose" << endl;
-    cout << "2. Daisy" << endl;
-    cout << "3. Sunflower" << endl;
-    outline();
-    cout << "Enter your choice: ";
+    outline();          
+    cout << "                                          choose your flower" << endl;
+    cout << "                                              [1] Rose" << endl;
+    cout << "                                             [2] Daisy" << endl;
+    cout << "                                            [3] Sunflower" << endl;
+    outline();  
+    cout << "                                          Enter your choice: ";
     cin >> choice;
 
     switch (choice)
     {
         case 1:
-        cout << "You chose Rose!" << endl;
+        outline();
+        cout << "                                          You chose Rose!" << endl;
+        outline();
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
         while (true) {
             random_weather();
-            cout << "Rose is growing..." << endl;
+            cout << "                                          Rose is growing..." << endl;
+            outline();
             std::this_thread::sleep_for(std::chrono::milliseconds(10000));
             rose_stage1();
             random_weather();
@@ -60,20 +64,24 @@ void Start (){
             careRandomize();
             std::this_thread::sleep_for(std::chrono::milliseconds(10000));
             rose_stage5();
+            player.incrementFlowerCount();
             outline();
-            cout << "Congratulations! Your Rose has fully grown!" << endl;
+            cout << "                                          Congratulations! Your Rose has fully grown!" << endl;
             outline();
-            Start();
+            Start(player);
 
             break;
         }
         break;
         case 2:
-        cout << "You chose Daisy!" << endl;
+        outline();
+        cout << "                                          You chose Daisy!" << endl;
+        outline();
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
         while (true) {
             random_weather();
-            cout << "Daisy is growing..." << endl;
+            cout << "                                          Daisy is growing..." << endl;
+            outline();
             std::this_thread::sleep_for(std::chrono::milliseconds(10000));
             daisy_stage1();
             random_weather();
@@ -92,20 +100,24 @@ void Start (){
             careRandomize();
             std::this_thread::sleep_for(std::chrono::milliseconds(10000));
             daisy_stage5();
+            player.incrementFlowerCount();
             outline();
-            cout << "Congratulations! Your Daisy has fully grown!" << endl;
+            cout << "                                          Congratulations! Your Daisy has fully grown!" << endl;
             outline();
-            Start();
+            Start(player);
             break; 
         }
         
         break;
         case 3:
-        cout << "You chose Sunflower!" << endl;
+        outline();
+        cout << "                                          You chose Sunflower!" << endl;
+        outline();
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
         while (true) {
             random_weather();
-            cout << "Sunflower is growing..." << endl;
+            cout << "                                          Sunflower is growing..." << endl;
+            outline();
             std::this_thread::sleep_for(std::chrono::milliseconds(10000));
             sunflower_stage1();
             random_weather();
@@ -124,19 +136,20 @@ void Start (){
             careRandomize();
             std::this_thread::sleep_for(std::chrono::milliseconds(10000));
             sunflower_stage5();
+            player.incrementFlowerCount();
             outline();
-            cout << "Congratulations! Your Sunflower has fully grown!" << endl;
+            cout << "                                          Congratulations! Your Sunflower has fully grown!" << endl;
             outline();
-            Start();
+            Start(player);
             break; 
         }
         
         break;
         default:
         outline();
-        cout << "Invalid choice. Please try again." << endl;
+        cout << "                                          Invalid choice. Please try again." << endl;
         outline();
-        Start();
+        Start(player);
         break;
     }
  
