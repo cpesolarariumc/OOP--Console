@@ -31,9 +31,9 @@ class PlayerData{
     }
     
     void incrementFlowerCount() {
-            int count = getFlowerCount();
-            count++;
-            flowercount = std::to_string(count);
-        }
+        int count = getFlowerCount();
+        count++;
+        flowercount = std::to_string(count);
+    }
 };
 #endif

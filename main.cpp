@@ -128,6 +128,7 @@ int main() {
                     }else{
                         cout << "                                         Logging out.."<<endl;
                         loggedIn=false;
+                        Close();
                     }
                 }
             }
